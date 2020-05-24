@@ -1,4 +1,4 @@
-class CurrenciesController < ActionController
+class CurrenciesController < ApplicationController
   def index
   end
 
