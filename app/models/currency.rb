@@ -1,4 +1,9 @@
 class Currency < ApplicationRecord
+
+  def calculate_value(amount)
+    (current_price.to_f * amount.to_f).round(4)
+  end
+
   def current_price
      headers = {
       "X-CMC_PRO_API_KEY" => "54496509-c9c0-415f-a178-6441129d31e3"
