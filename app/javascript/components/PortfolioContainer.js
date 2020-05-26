@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Search from "./Search";
 import Calculate from "./Calculate";
+import axios from "axios";
 
 class PortfolioContainer extends Component {
   constructor(props) {
@@ -21,7 +22,13 @@ class PortfolioContainer extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    console.log(this.state.name);
+
+    axios
+      .post("http://localhost:3000/search", {
+        name: this.state.name,
+      })
+      .then((data) => {})
+      .catch((data) => {});
   }
 
   render() {
