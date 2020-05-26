@@ -6,6 +6,9 @@ class Search extends Component {
   }
 
   render() {
+    const searchResults = this.props.searchResults.map((curr) => (
+      <li key={curr.id}>{curr.name}</li>
+    ));
     return (
       <div>
         <h1>Cryptocurrency portfolio calculator</h1>
@@ -23,6 +26,7 @@ class Search extends Component {
               className="field"
             />
           </div>
+          <div className="currency-list">{searchResults}</div>
         </form>
       </div>
     );
