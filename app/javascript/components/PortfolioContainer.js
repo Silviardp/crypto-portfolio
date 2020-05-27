@@ -45,16 +45,17 @@ class PortfolioContainer extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Search
-          handleSelect={this.handleSelect}
-          searchResults={this.state.search_results}
-          handleChange={this.handleChange}
-        />
-        <Calculate />
-      </div>
+    const searchOrCalculate = this.state.active_currency ? (
+      <Calculate />
+    ) : (
+      <Search
+        handleSelect={this.handleSelect}
+        searchResults={this.state.search_results}
+        handleChange={this.handleChange}
+      />
     );
+
+    return <div>{searchOrCalculate}</div>;
   }
 }
 
